@@ -1,0 +1,51 @@
+{
+  "name": "pi-run-metrics",
+  "version": "0.1.0",
+  "description": "Display metrics about the current run.",
+  "keywords": [
+    "metrics",
+    "pi",
+    "pi-extension"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ggcls/pi-pack.git",
+    "directory": "packages/pi-run-metrics"
+  },
+  "files": [
+    "src",
+    "pi-run-metrics.example.jsonc",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "imports": {
+    "#metrics/*": "./src/*",
+    "#metrics-test/*": "./test/*"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "dev": "pi -e .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@pi-pack/shared": "workspace:*",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  }
+}

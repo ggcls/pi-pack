@@ -1,0 +1,45 @@
+{
+  "name": "pi-pack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for pi extensions.",
+  "license": "MIT",
+  "repository": "ggcls/pi-pack",
+  "workspaces": [
+    "packages/*"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "pi -e .",
+    "dev:whimsical": "pnpm --filter pi-whimsical dev",
+    "dev:run-metrics": "pnpm --filter pi-run-metrics dev",
+    "install:pi-whimsical": "pi install ./packages/pi-whimsical",
+    "install:pi-run-metrics": "pi install ./packages/pi-run-metrics",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "test": "vitest run",
+    "lint": "oxlint . && oxfmt --check .",
+    "lint:fix": "oxlint --fix . && oxfmt .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.4.0",
+    "@earendil-works/pi-tui": "^1.4.0",
+    "@types/node": "^26.6.5",
+    "jscpd": "^5.4.2",
+    "obuild": "^0.4.45",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "pi": {
+    "extensions": [
+      "packages/pi-*/src/index.ts"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@pi-pack/shared",
+  "version": "0.1.0",
+  "description": "ESM utilities for Pi extensions: events, configuration, files, and validation.",
+  "license": "MIT",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./config": {
+      "types": "./src/config.ts",
+      "import": "./src/config.ts"
+    },
+    "./errors": {
+      "types": "./src/errors.ts",
+      "import": "./src/errors.ts"
+    },
+    "./events": {
+      "types": "./src/events.ts",
+      "import": "./src/events.ts"
+    },
+    "./files": {
+      "types": "./src/files.ts",
+      "import": "./src/files.ts"
+    },
+    "./validation": {
+      "types": "./src/validation.ts",
+      "import": "./src/validation.ts"
+    }
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.3.1",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  }
+}
